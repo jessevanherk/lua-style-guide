@@ -145,20 +145,20 @@ you find any mistakes or typos.
 
 ## <a name='strings'>Strings</a>
 
-  - Use single quotes `''` for strings.
+  - Use double quotes `""` for strings.
 
     ```lua
     -- bad
-    local name = "Bob Parr"
-
-    -- good
     local name = 'Bob Parr'
 
+    -- good
+    local name = "Bob Parr"
+
     -- bad
-    local fullName = "Bob " .. self.lastName
+    local fullName = 'Bob ' .. self.lastName
 
     -- good
-    local fullName = 'Bob ' .. self.lastName
+    local fullName = "Bob " .. self.lastName
     ```
 
   - Strings longer than 80 characters should be written across multiple lines 
@@ -420,14 +420,16 @@ you find any mistakes or typos.
     end
     ```
 
-  - Short ternaries are okay.
+  - Don't use ternaries.
 
     ```lua
+    -- okay
     local function default_name(name)
       -- return the default 'Waldo' if name is nil
       return name or 'Waldo'
     end
 
+    -- bad
     local function brew_coffee(machine)
       return machine and machine.is_loaded and 'coffee brewing' or 'fill your water'
     end
@@ -487,7 +489,7 @@ you find any mistakes or typos.
     end
     ```
 
-  - Place 1 space before opening and closing braces. Place no spaces around parens.
+  - Place 1 space before opening and closing braces. Place 1 space at start and end of parens.
 
     ```lua
     -- bad
@@ -503,10 +505,10 @@ you find any mistakes or typos.
     })
 
     -- good
-    dog.set('attr', {
+    dog.set( 'attr', {
       age = '1 year',
       breed = 'Bernese Mountain Dog'
-    })
+    } )
     ```
 
   - Place an empty newline at the end of the file.
@@ -584,7 +586,7 @@ you find any mistakes or typos.
 
 ## <a name='commas'>Commas</a>
 
-  - Leading commas aren't okay. An ending comma on the last item is okay but discouraged.
+  - Leading commas aren't okay. Place a comma at the end of the last item in a list.
 
     ```lua
     -- bad
@@ -641,7 +643,7 @@ you find any mistakes or typos.
     local totalScore = reviewScore .. ''
 
     -- good
-    local totalScore = tostring(reviewScore)
+    local totalScore = tostring( reviewScore )
     ```
 
   - Use `tonumber` for Numbers.
@@ -653,7 +655,7 @@ you find any mistakes or typos.
     local val = inputValue * 1
 
     -- good
-    local val = tonumber(inputValue)
+    local val = tonumber( inputValue )
     ```
 
     **[[⬆]](#TOC)**
@@ -685,7 +687,7 @@ you find any mistakes or typos.
     end
     ```
 
-  - Use snake_case when naming objects, functions, and instances. Tend towards
+  - Use snake_case when naming objects and instances. Tend towards
     verbosity if unsure about naming.
 
     ```lua
@@ -701,7 +703,7 @@ you find any mistakes or typos.
     -- good
     local this_is_my_object = {}
 
-    local function do_that_thing()
+    local function doThatThing()
       -- ...stuff...
     end
     ```
@@ -723,12 +725,12 @@ you find any mistakes or typos.
 
     ```lua
     --bad
-    local function evil(alignment)
+    local function evil( alignment )
       return alignment < 100
     end
 
     --good
-    local function is_evil(alignment)
+    local function is_evil( alignment )
       return alignment < 100
     end
     ```
