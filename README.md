@@ -420,7 +420,7 @@ you find any mistakes or typos.
     end
     ```
 
-  - Don't use ternaries.
+  - Don't use ternaries. Use 'or' to set defaults.
 
     ```lua
     -- okay
@@ -489,7 +489,7 @@ you find any mistakes or typos.
     end
     ```
 
-  - Place 1 space before opening and closing braces. Place 1 space at start and end of parens.
+  - Place 1 space before opening and closing braces. Place no spaces around parens.
 
     ```lua
     -- bad
@@ -505,10 +505,10 @@ you find any mistakes or typos.
     })
 
     -- good
-    dog.set( 'attr', {
+    dog.set('attr', {
       age = '1 year',
       breed = 'Bernese Mountain Dog'
-    } )
+    })
     ```
 
   - Place an empty newline at the end of the file.
@@ -655,7 +655,7 @@ you find any mistakes or typos.
     local val = inputValue * 1
 
     -- good
-    local val = tonumber( inputValue )
+    local val = tonumber(inputValue)
     ```
 
     **[[⬆]](#TOC)**
@@ -725,12 +725,12 @@ you find any mistakes or typos.
 
     ```lua
     --bad
-    local function evil( alignment )
+    local function evil(alignment)
       return alignment < 100
     end
 
     --good
-    local function is_evil( alignment )
+    local function is_evil(alignment)
       return alignment < 100
     end
     ```
